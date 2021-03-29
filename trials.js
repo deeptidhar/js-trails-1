@@ -183,13 +183,13 @@ function hasBalancedParens(string) {
     } else if (char === ')') {
       parens -= 1;
 
-      if (parens < 0) {
+      if (parens < 0) 
         return false;
       }
     }
   }
 
-  return parens < 0;
+  return parens === 0;
 }
 
 

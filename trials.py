@@ -57,7 +57,7 @@ def censor_vowels(word):
         else:
             chars.append(letter)
 
-    string = "".join(chars)
+    string = "".join(chars)#[a,e,i]convert into string  
 
     print(string)
    
@@ -65,28 +65,75 @@ def censor_vowels(word):
 
 def snake_to_camel(string):
     case=[]
-    for word in string:
-        case.append(word[0].uppercase()[1]
+    # for word in string.split('_'):
+    #     w = word[0].upper()
+    #     x = slice(1)
+    #     case.append(w[x])
+    # snake = "".join(case)
 
-    snake_to = "".join(chars)
+    # print(snake)
 
-    print(snake_to)
+    for word in string.split('_'):
+        camel_case.append(f'{word[0].upper()}{word[1:]}')
+
+    return ''.join(camel_case)
         
 
 
-
-
 def longest_word_length(words):
-    pass  # TODO: replace this line with your code
+    longest = len(words[0])
+
+    for word in words:
+        if longest < len(word):
+            longest = len(word)
+    
+    return longest
 
 
 def truncate(string):
-    pass  # TODO: replace this line with your code
+    result=[]
+    for char in string:
+        if len(result) == 0 or char!= result[len(result)-1]: 
+            result.append(char)
+    
+
+    print(''.join(result))
+           
 
 
 def has_balanced_parens(string):
-    pass  # TODO: replace this line with your code
+    parens = 0
+    
+    for char in string:
+        if char == '(':
+            parens+=1
+        elif char == ')':
+            parens-=1
+            if parens < 0:
+                return false
 
+    return parens == 0
 
 def compress(string):
-    pass  # TODO: replace this line with your code
+    compressed = []
+    currChar = ''
+    charCount = 0
+
+    for char in string:
+        if char != currChar:
+            compressed.append(currChar)
+
+            if charCount > 1:
+                compressed.append(str(charCount))
+
+            currChar = char
+            charCount = 0
+
+        charCount += 1
+
+    compressed.append(currChar)
+    if charCount > 1:
+        compressed.append(str(charCount))
+
+    return ''.join(compressed
+    
